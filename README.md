@@ -1,2 +1,2 @@
 # Pacman
-I writting for my self
+I am writting it for my self
