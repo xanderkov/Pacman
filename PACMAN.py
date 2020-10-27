@@ -63,9 +63,3 @@ class Pacman:
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
-
-    def to_sprite(self):
-        s = pygame.sprite.Sprite()
-        s.image = self.image
-        s.rect = self.rect
-        return s
