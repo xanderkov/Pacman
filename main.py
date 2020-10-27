@@ -1,12 +1,12 @@
 import pygame
 import sys
+from Colors import *
+from PACMAN import *
 
-
-size = width, height = 800, 600
-black = 0, 0, 0
-
+image = pygame.image.load('Characters/map.png')
 
 def main():
+    pacman = Pacman()
     pygame.init()
     screen = pygame.display.set_mode(size)
     game_over = False
@@ -14,8 +14,14 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_over = True
-        screen.fill(black)
+        pacman.move(event)
 
+
+        pacman.check_borders()
+
+        screen.fill(BLACK)
+        screen.blit(image, image.get_rect())
+        pacman.draw(screen)
         pygame.display.flip()
         pygame.time.wait(10)
     sys.exit()
