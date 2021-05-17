@@ -5,6 +5,7 @@ from PACMAN import *
 
 image = pygame.image.load('Characters/map.png')
 
+
 def main():
     pacman = Pacman()
     pygame.init()
@@ -16,14 +17,12 @@ def main():
                 game_over = True
         pacman.move(event)
 
-
+        pacman.animation()
         pacman.check_borders()
-
         screen.fill(BLACK)
-        screen.blit(image, image.get_rect())
         pacman.draw(screen)
         pygame.display.flip()
-        pygame.time.wait(10)
+        pygame.time.wait(30)
     sys.exit()
 
 
