@@ -5,15 +5,6 @@ from Colors import *
 move_r = [pygame.image.load('Characters/Pacman_1_R.png'), pygame.image.load('Characters/Pacman_2_R.png'), pygame.image.load('Characters/Pacman_3_R.png'), pygame.image.load('Characters/Pacman_4_R.png'),
           pygame.image.load('Characters/Pacman_5.png'), pygame.image.load('Characters/Pacman_4_R.png'), pygame.image.load('Characters/Pacman_3_R.png'), pygame.image.load('Characters/Pacman_2_R.png'), pygame.image.load('Characters/Pacman_1_R.png')]
 
-move_l = [pygame.image.load('Characters/Pacman_1_L.png'), pygame.image.load('Characters/Pacman_2_L.png'), pygame.image.load('Characters/Pacman_3_L.png'), pygame.image.load('Characters/Pacman_4_L.png'),
-          pygame.image.load('Characters/Pacman_5.png'), pygame.image.load('Characters/Pacman_4_L.png'), pygame.image.load('Characters/Pacman_3_L.png'), pygame.image.load('Characters/Pacman_2_L.png'), pygame.image.load('Characters/Pacman_1_L.png')]
-
-move_u = [pygame.image.load('Characters/Pacman_1_U.png'), pygame.image.load('Characters/Pacman_2_U.png'), pygame.image.load('Characters/Pacman_3_U.png'), pygame.image.load('Characters/Pacman_4_U.png'),
-          pygame.image.load('Characters/Pacman_5.png'), pygame.image.load('Characters/Pacman_4_U.png'), pygame.image.load('Characters/Pacman_3_U.png'), pygame.image.load('Characters/Pacman_2_U.png'), pygame.image.load('Characters/Pacman_1_U.png')]
-
-move_d = [pygame.image.load('Characters/Pacman_1_D.png'), pygame.image.load('Characters/Pacman_2_D.png'), pygame.image.load('Characters/Pacman_3_D.png'), pygame.image.load('Characters/Pacman_4_D.png'),
-          pygame.image.load('Characters/Pacman_5.png'), pygame.image.load('Characters/Pacman_4_D.png'), pygame.image.load('Characters/Pacman_3_D.png'), pygame.image.load('Characters/Pacman_2_D.png'), pygame.image.load('Characters/Pacman_1_D.png')]
-
 
 def change_animation(s, rotate, anim_count):
     if rotate != s:
@@ -43,11 +34,11 @@ class Pacman:
         if self.rotate == 'R':
             self.image = move_r[self.anim_count]
         if self.rotate == 'D':
-            self.image = move_d[self.anim_count]
+            self.image = pygame.transform.rotate(move_r[self.anim_count], 270)
         if self.rotate == 'U':
-            self.image = move_u[self.anim_count]
+            self.image = pygame.transform.rotate(move_r[self.anim_count], 90)
         if self.rotate == 'L':
-            self.image = move_l[self.anim_count]
+            self.image = pygame.transform.rotate(move_r[self.anim_count], 180)
 
     def check_borders(self):
         """
